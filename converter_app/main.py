@@ -1,4 +1,3 @@
-import tkinter as tk
 from tkinter import *
 
 
@@ -27,7 +26,7 @@ METER_CONVERSIONS = {
 UNITS = [unit for unit in METER_CONVERSIONS.keys()]
 FONT = ('Arial', 15, 'normal')
 
-window = tk.Tk()
+window = Tk()
 window.title("Length Converter")
 window.minsize()
 window.config(padx=20, pady=20)
@@ -35,28 +34,28 @@ window.config(padx=20, pady=20)
 unit_1 = StringVar(window, value=UNITS[0])
 unit_2 = StringVar(window, value=UNITS[1])
 
-num = tk.StringVar(window, value='0.0')
+num = StringVar(window, value='0.0')
 
-entry = tk.Entry(window, textvariable=num)
+entry = Entry(window, textvariable=num)
 entry.config(font=FONT)
 entry.grid(column=1, row=0)
 
-option_1 = tk.OptionMenu(window, unit_1, *UNITS)
+option_1 = OptionMenu(window, unit_1, *UNITS)
 option_1.config(font=FONT, padx=5)
 option_1.grid(column=2, row=0)
 
-option_2 = tk.OptionMenu(window, unit_2, *UNITS)
+option_2 = OptionMenu(window, unit_2, *UNITS)
 option_2.config(font=FONT, padx=5, )
 option_2.grid(column=2, row=1)
 
-button = tk.Button(text="Convert", command=convert, font=FONT)
+button = Button(text="Convert", command=convert, font=FONT)
 button.config(padx=5)
 button.grid(column=1, row=2)
 
-label = tk.Label(text="is equal to: ", font=FONT)
+label = Label(text="is equal to: ", font=FONT)
 label.grid(column=0, row=1)
 
-output = tk.Label(text=0.0, font=FONT)
+output = Label(text=0.0, font=FONT)
 output.grid(column=1, row=1)
 
 window.mainloop()
