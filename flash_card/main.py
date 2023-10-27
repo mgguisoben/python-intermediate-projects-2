@@ -12,7 +12,7 @@ def next_card():
     current_card = choice(to_learn)
 
     card.itemconfig(top_text, text=current_card["Kanji"])
-    card.itemconfig(mid_text, text=current_card["Kana"])
+    card.itemconfig(mid_text, text=current_card["Kana"], fill="#9cb4f2")
     card.itemconfig(bottom_text, text=current_card["Romaji"])
     card.itemconfig(card_image, image=cardf_img)
 
@@ -20,10 +20,13 @@ def next_card():
 
 
 def flip_card():
+
     card.itemconfig(card_image, image=cardb_img)
     card.itemconfig(mid_text, text=current_card["English"], fill="#e28c75")
     card.itemconfig(top_text, text=current_card["Kana"])
     card.itemconfig(bottom_text, text="")
+
+
 
 
 BG_COLOR = "#B1DDC6"
@@ -42,9 +45,9 @@ wrong_img = PhotoImage(file="images/wrong.png")
 
 card = Canvas(width=800, height=526, bg=BG_COLOR, highlightthickness=0)
 card_image = card.create_image(400, 263, image=cardf_img)
-top_text = card.create_text(400, 80, text="Kanji", font=("Arial", 60, "normal"))
-mid_text = card.create_text(400, 230, text="Kana", font=("Arial", 100, "normal"), fill="#9cb4f2")
-bottom_text = card.create_text(400, 380, text="Romaji", font=("Arial", 80, "normal"))
+top_text = card.create_text(400, 80, text="Kanji", font=("Arial", 60, "normal"), width=790)
+mid_text = card.create_text(400, 230, text="Kana", font=("Arial", 60, "normal"), fill="#9cb4f2", width=790)
+bottom_text = card.create_text(400, 380, text="Romaji", font=("Arial", 50, "normal"), width=790)
 card.grid(column=0, row=0, columnspan=2)
 
 right_bttn = Button(image=right_img, bg=BG_COLOR, highlightthickness=0, command=next_card)
